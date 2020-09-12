@@ -18,7 +18,7 @@ class Product(models.Model):
     description = models.CharField(max_length=200, blank=False, default='')
     price = models.IntegerField()
     unit_of_measure = models.CharField(max_length=70, blank=False, default='')
-    image = models.ImageField(blank=True)
+    image = models.ImageField(upload_to='images/product',blank=True)
 
 
 class Inventory(models.Model):

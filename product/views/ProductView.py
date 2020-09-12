@@ -24,8 +24,8 @@ def product_list(request):
         
         # 'safe=False' for objects serialization
     elif request.method == 'POST':
-        product_data = JSONParser().parse(request)
-        product_serializer = ProductSerializer(data=product_data)
+        # product_data = JSONParser().parse(request)
+        product_serializer = ProductSerializer(data=request.data)
         if product_serializer.is_valid():
             product_serializer.save()
             return JsonResponse(product_serializer.data, status=status.HTTP_201_CREATED) 
