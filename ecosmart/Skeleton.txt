@@ -1,0 +1,17 @@
+product
+ - product
+ - inventory
+ - product_category
+user
+ - user
+customer
+ - customer
+order
+ - order
+ - order_products
+ - payment
+profile
+ - customer_type
+ - user_type
+ - id_proof
+ - activity_history
