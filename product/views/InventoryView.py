@@ -44,8 +44,7 @@ def inventory_detail(request, pk):
             inventory_serializer = InventorySerializer(inventory) 
             return JsonResponse(inventory_serializer.data)
         elif request.method == 'PUT': 
-            inventory_data = JSONParser().parse(request) 
-            inventory_serializer = InventorySerializer(inventory, data=inventory_data) 
+            inventory_serializer = InventorySerializer(inventory, data=request.data) 
             if inventory_serializer.is_valid(): 
                 inventory_serializer.save() 
                 return JsonResponse(inventory_serializer.data) 

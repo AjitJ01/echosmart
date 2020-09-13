@@ -45,8 +45,7 @@ def category_detail(request, pk):
             category_serializer = CategorySerializer(category) 
             return JsonResponse(category_serializer.data)
         elif request.method == 'PUT': 
-            category_data = JSONParser().parse(request) 
-            category_serializer = CategorySerializer(category, data=category_data) 
+            category_serializer = CategorySerializer(category, data=request.data) 
             if category_serializer.is_valid(): 
                 category_serializer.save() 
                 return JsonResponse(category_serializer.data) 

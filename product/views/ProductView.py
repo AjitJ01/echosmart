@@ -33,7 +33,7 @@ def product_list(request):
 
     elif request.method == 'DELETE':
         count = Product.objects.all().delete()
-        return JsonResponse({'message': '{} Categories was/were deleted successfully!'.format(count[0])}, status=status.HTTP_204_NO_CONTENT)
+        return JsonResponse({'message': '{} Product was/were deleted successfully!'.format(count[0])}, status=status.HTTP_204_NO_CONTENT)
  
 @api_view(['GET', 'PUT', 'DELETE'])
 def product_detail(request, pk):
@@ -44,8 +44,7 @@ def product_detail(request, pk):
             product_serializer = ProductSerializer(product) 
             return JsonResponse(product_serializer.data)
         elif request.method == 'PUT': 
-            product_data = JSONParser().parse(request) 
-            product_serializer = ProductSerializer(product, data=product_data) 
+            product_serializer = ProductSerializer(product, data=request.data) 
             if product_serializer.is_valid(): 
                 product_serializer.save() 
                 return JsonResponse(product_serializer.data) 

@@ -3,15 +3,15 @@ product
  - inventory
  - product_category
 user
- - user
+  - user_type
+  - user
+  - activity_history
 customer
+ - customer_type
  - customer
 order
  - order
  - order_products
  - payment
 profile
- - customer_type
- - user_type
  - id_proof
- - activity_history
