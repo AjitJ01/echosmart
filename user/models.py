@@ -10,6 +10,7 @@ class UserType(models.Model):
 class User(models.Model):
     class Meta:
         db_table = "user"
+        
     utype = models.ForeignKey(UserType, on_delete=models.CASCADE,null=True,blank = True)
     title = models.CharField(max_length=5, blank=False, default='')
     first_name = models.CharField(max_length=50, blank=False, default='')
